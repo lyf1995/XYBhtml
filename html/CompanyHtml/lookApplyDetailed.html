@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>查看简历详情</title>
+	<link rel="stylesheet" type="text/css" href="../../css/CompanyCss/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/CompanyCss/jquery.dialogbox.css">
+	<link rel="stylesheet" type="text/css" href="../../css/CompanyCss/lookApplyDetailed.css">
+	<script type="text/javascript" src="../../js/CompanyJs/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../js/CompanyJs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/CompanyJs/lookApplyDetailed.js"></script>
+	<script type="text/javascript" src="../../js/CompanyJs/jquery.dialogBox.js"></script>
+</head>
+<body>
+<!--聊天模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				浙江互联网科技有限公司
+			    <button class="close" data-dismiss="modal"><span style="font-size:40px;">&times;</span></button>
+			</div>
+			<div class="modal-body clearfix">
+				<div class="modal-left">
+					他说：你好，这里是浙江互联网科技有限公司。
+				</div>
+				<div class="modal-right">
+					我说：你好，我想问问你们公司招人的具体情况。
+				</div>
+			</div>
+			<div class="modal-footer">
+				<textarea class="modalTextarea"></textarea>
+				<button class="btn btn-danger">发送</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--dialog弹出框-->
+<div id="btn-dialogBox"></div>
+<header>
+	<div class="top-bar">
+	    <div class="top-bar-1200 clearfix">	
+	    	<a class="a-ext out" href="javascript:;">
+	    		<img src="../../images/ext.PNG" alt="">
+	    		<span>退出</span>
+	    	</a>
+	    	<a class="a-info out" href="javascript:;">
+	    		<img src="../../images/info.PNG" alt="">
+	    		<span>消息</span>
+	    	</a>
+	    	<a class="a-set out" href="companyInfo.html">
+	    		<img src="../../images/set.PNG" alt="">
+	    	 	<span>设置</span>
+	    	</a>
+	    	<div class="a-wel out-up" href="javascript:;">
+	    		<span>您好,506833107</span>
+	    		<img src="../../images/down.png" alt="">
+	    		<ul class="clearfix">
+	    			<li><a href="companyInfo.html">个人信息</a></li>
+	    			<li><a href="javascript:;">修改密码</a></li>
+	    		</ul>
+	    	</div>
+	    </div>
+	</div>
+	<div class="logo-bar">
+		<div class="logo-bar-1200 clearfix">
+			<div class="logo">
+				<img src="../../images/logo.PNG" alt="">
+			</div>
+			<div class="logo-right clearfix">
+				<ul id="logo-right-ul" class="clearfix">
+					<li><a href="jobManager.html">岗位管理</a></li>
+					<li>校招管理<img src="../../images/down2.png"  alt="">
+						<ul id="logo-right-child-ul" class="clearfix">
+							<li><a href="companyRecruit.html">校招对接</a></li>
+							<li><a href="hasApply.html">我的校招</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div id="middle" class="middle-1200 clearfix">
+	<nav id="middle-left" >
+	    <div class="middle-left-top">
+	    	<div id="status" style="margin-bottom: 20px;font-size: 20px;"><span style="color:#c9302c;">简历状态：通知面试</span></div>
+
+        	<span>简历完善度</span><span class="pro-span"></span>   	
+	    	<div class="progress" style="width:180px; height:15px;">
+				<div class="progress-bar"></div>
+			</div>
+	    </div>
+		<ul>
+			<li>
+				<span id="jbxx" class="no-create">未创建</span>
+				<a href="#jbxxSide">基本信息</a>
+			</li>
+			<li>
+				<span id="grjj" class="no-create">未创建</span>
+				<a href="#grjjSide">个人简介</a>
+			</li>
+			<li>
+				<span id="qzyx" class="no-create">未创建</span>
+				<a href="#qzyxSide">求职意向</a>
+			</li>
+			<li>
+				<span id="xmjy" class="no-create">未创建</span>
+				<a href="#xmjySide">项目经验</a>
+			</li>
+			<li>
+				<span id="xnzw" class="no-create">未创建</span>
+				<a href="#xnzwSide">校内职务</a>
+			</li>
+			<li>
+				<span id="yynl" class="no-create">未创建</span>
+				<a href="#yynlSide">语言能力</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div id="middle-right">
+		<div class="status clearfix">
+			<button id="communicate" class="btn btn-danger">待沟通</button>
+			<button id="interview" class="btn btn-danger">通知面试</button>
+			<button id="Inappropriate" class="btn btn-danger">不合适</button>
+			<button id="callPerson" class="btn btn-danger" data-toggle="modal" data-target="#myModal">联系本人</button>
+		</div>
+		<!--基本信息-->
+		<div id="jbxxSide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>基本信息</span>
+			</h2>
+			<div id="jbxx-show">
+				<div class="jbxx-show-box clearfix">
+					<div class="line-50">
+						<span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+						<span id="show-name">鲁钺锋</span>
+					</div>
+					<div class="line-50">
+						<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+						<span id="show-sex" >男</span>
+					</div>
+					<div class="line-50">
+						<span>出生年月：</span>
+						<span id="show-birth" >2017-01-01</span>
+					</div>
+					<div class="line-50">
+						<span>电话号码：</span>
+						<span id="show-tel" class="isCreate">17826804660</span>
+					</div>
+					<div class="line-50">
+						<span>联系邮箱：</span>
+						<span id="show-email" class="isCreate">506833107@qq.com</span>
+					</div>
+					<div class="line-50">
+						<span>现居地址：</span>
+						<span id="show-address" class="isCreate">浙江省余姚市</span>
+					</div>
+					<div class="line-50">
+						<span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：</span>
+						<span id="show-school" class="isCreate">浙江科技学院</span>
+					</div>
+					<div class="line-50">
+						<span>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</span>
+						<span id="show-major" class="isCreate">软件工程</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--个人简历-->
+		<div id="grjjSide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>个人简介</span>
+			</h2>
+			<div id="grjj-show">
+				<div ><span id="show-grjj" class="isCreate"></span></div>
+			</div>
+		</div>
+
+
+		<!--求职意向-->
+		<div id="qzyxSide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>求职意向</span>
+			</h2>
+			<div id="qzyx-show">
+				<div class="qzyx-show-box clearfix">
+					<div class="line-50">
+						<span>求职类型：</span>
+						<span id="show-Jobtype" class="isCreate"></span>
+					</div>
+					<div class="line-50">
+						<span>目标地点：</span>
+						<span id="show-targetAddress" class="isCreate"></span>
+					</div>
+					<div class="line-50">
+						<span>期望岗位：</span>
+						<span id="show-post" class="isCreate"></span>
+					</div>
+					<div class="line-50">
+						<span>期望薪水：</span>
+						<span id="show-salary" class="isCreate"></span><span>/月</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--项目经验-->
+		<div id="xmjySide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>项目经验</span>
+			</h2>
+			<div id="xmjy-show">
+				<div class="xmjy-show-box clearfix">
+					
+
+
+				</div>
+			</div>
+		</div>
+
+
+		<!--校内职务-->
+		<div id="xnzwSide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>校内职务</span>
+			   
+			</h2>
+			<div id="xnzw-show">
+				<div class="xnzw-show-box clearfix">
+					
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--语言能力-->
+		<div id="yynlSide">
+			<h2><img src="../../images/shuxian.png" alt=""><span>语言能力</span>
+			</h2>
+			<div id="yynl-show">
+				<div class="yynl-show-box clearfix">
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<footer>
+	<div class="footer-1200 clearfix">
+		<div class="footer-left">
+			© 2013-2017 xybsyw.com Corporation,All Rights Reserved <br>
+			浙江校友邦人力资源有限公司 版权所有<br>
+			浙ICP备14000179号 
+		</div>
+		<div class="footer-right">
+			网站首页&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp; 联系我们 <br><br>
+			加入我们&nbsp;&nbsp;&nbsp;联系中心
+		</div>
+	</div>			
+</footer>
+</body>
+</html>
